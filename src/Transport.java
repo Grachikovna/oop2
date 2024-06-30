@@ -1,4 +1,4 @@
-public abstract class Transport {
+public abstract class Transport implements CarMaintenance {
     private final String modelName;
     private final int wheelsCount;
 
@@ -18,4 +18,16 @@ public abstract class Transport {
     public void updateTyre() {
         System.out.println("Меняем покрышку");
     }
+
+    @Override
+    public void service() {
+        System.out.println("Обслуживаем" + getModelName());
+        for (int i = 0; i < getWheelsCount(); i++) {
+            updateTyre();
+
+        }
+
+    }
 }
+
+
